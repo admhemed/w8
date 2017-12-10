@@ -1,0 +1,17 @@
+.main-container {
+    padding: 15px;
+    -ms-overflow-x: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: relative;
+    overflow: hidden;
+    background-image: url(../../assets/images/BG.jpg);
+    background-position: center top ;
+    background-repeat: no-repeat;
+    min-height:500px;
+}
+@media screen and (max-width: 992px) {
+    .main-container {
+        margin-left: 0px !important;
+    }
+}

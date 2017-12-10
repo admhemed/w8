@@ -1,0 +1,47 @@
+$topnav-background-color: transparent;
+:host {
+    .navbar {
+        .container{
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            background-color: rgba(255,255,255,0.75) ;
+
+            .top-menu{
+                $color : #232924;
+                .nav-no-link {
+                    font-size: 12px;
+                    height: 16px;
+                    color: #ada09a;
+                }
+                a.nav-link {
+                    @extend .nav-no-link;
+                    color: $color;
+                    border:1px solid $color;
+                }
+            }
+        }
+    }
+    .messages {
+        width: 300px;
+        .media {
+            border-bottom: 1px solid #ddd;
+            padding: 5px 10px;
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+        .media-body {
+            h5 {
+                font-size: 13px;
+                font-weight: 600;
+            }
+            .small {
+                margin: 0;
+            }
+            .last {
+                font-size: 12px;
+                margin: 0;
+            }
+        }
+    }
+}

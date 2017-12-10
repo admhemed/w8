@@ -9,6 +9,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
+import {AuthServiceConfig, GoogleLoginProvider, SocialLoginModule} from 'angular4-social-login';
 
 // AoT requires an exported function for factories
 export function createTranslateLoader(http: HttpClient) {
@@ -16,6 +17,15 @@ export function createTranslateLoader(http: HttpClient) {
     // return new TranslateHttpLoader(http, '/start-angular/SB-Admin-BS4-Angular-5/master/dist/assets/i18n/', '.json');
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
+
+
+const config = new AuthServiceConfig([
+    {
+        id: GoogleLoginProvider.PROVIDER_ID,
+        provider: new GoogleLoginProvider('586347763270-dp7nva58uvm3kv8fbadrd228km96sb8d.apps.googleusercontent.com')
+    }
+
+]);
 
 @NgModule({
     imports: [
@@ -30,7 +40,9 @@ export function createTranslateLoader(http: HttpClient) {
                 deps: [HttpClient]
             }
         }),
-        AppRoutingModule
+        AppRoutingModule,
+        SocialLoginModule.initialize(config)
+
     ],
     declarations: [AppComponent],
     providers: [AuthGuard],
