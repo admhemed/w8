@@ -19,6 +19,31 @@ $topnav-background-color: transparent;
                     border:1px solid $color;
                 }
             }
+            .bottom-menu{
+                a.nav-link{
+                    color: #252526;
+                    font-size:14px;
+                    font-weight: 600;
+                }
+                .red-button{
+                    background-color: #e82020;
+                    border-color: #e82020;
+                    color: white;
+                }
+                .dropdown-menu{
+                    background-color: transparent;
+                    border:0;
+                }
+                .dropdown-item{
+                    background-color: rgba(255,255,255,0.75);
+                }
+                .dropdown-item:hover{
+                    background-color: rgba(255,255,255,1);
+                    color: #eb2128;
+                    border: 3px solid #e82020;
+                    font-weight: 600;
+                }
+            }
         }
     }
     .messages {
