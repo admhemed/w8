@@ -9,7 +9,10 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
-import {AuthServiceConfig, GoogleLoginProvider, SocialLoginModule} from 'angular4-social-login';
+import {AuthServiceConfig, FacebookLoginProvider, GoogleLoginProvider, SocialLoginModule} from 'angular4-social-login';
+
+
+
 
 // AoT requires an exported function for factories
 export function createTranslateLoader(http: HttpClient) {
@@ -27,6 +30,11 @@ const config = new AuthServiceConfig([
 
 ]);
 
+
+export function provideConfig() {
+    return config;
+}
+
 @NgModule({
     imports: [
         CommonModule,
@@ -41,11 +49,14 @@ const config = new AuthServiceConfig([
             }
         }),
         AppRoutingModule,
-        SocialLoginModule.initialize(config)
+        SocialLoginModule
 
     ],
     declarations: [AppComponent],
-    providers: [AuthGuard],
+    providers: [AuthGuard, {
+        provide: AuthServiceConfig,
+        useFactory: provideConfig
+    }],
     bootstrap: [AppComponent]
 })
 export class AppModule {
