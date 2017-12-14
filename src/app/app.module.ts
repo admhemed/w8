@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
 import {AuthServiceConfig, FacebookLoginProvider, GoogleLoginProvider, SocialLoginModule} from 'angular4-social-login';
+import {PbiService} from "./pbi.service";
 
 
 
@@ -53,10 +54,14 @@ export function provideConfig() {
 
     ],
     declarations: [AppComponent],
-    providers: [AuthGuard, {
-        provide: AuthServiceConfig,
-        useFactory: provideConfig
-    }],
+    providers: [
+        AuthGuard,
+        {
+            provide: AuthServiceConfig,
+            useFactory: provideConfig
+        },
+        PbiService
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {

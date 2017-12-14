@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService, FacebookLoginProvider, GoogleLoginProvider, SocialUser} from 'angular4-social-login';
+import {PbiService} from "./pbi.service";
 
 @Component({
     selector: 'app-root',
@@ -11,7 +12,10 @@ export class AppComponent implements OnInit {
     private user: SocialUser;
     private loggedIn: boolean;
 
-    constructor(private authService: AuthService) { }
+    constructor(private authService: AuthService, pbiService: PbiService) {
+        pbiService.auth();
+
+    }
 
     signInWithGoogle(): void {
         this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
@@ -28,7 +32,6 @@ export class AppComponent implements OnInit {
     ngOnInit() {
         this.authService.authState.subscribe((user) => {
             this.user = user;
-            console.log('user',user);
             this.loggedIn = (user != null);
         });
     }
