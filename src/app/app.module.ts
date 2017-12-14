@@ -11,6 +11,8 @@ import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
 import {AuthServiceConfig, FacebookLoginProvider, GoogleLoginProvider, SocialLoginModule} from 'angular4-social-login';
 import {PbiService} from "./pbi.service";
+import { WindowRef } from './WindowRef';
+
 
 
 
@@ -55,6 +57,7 @@ export function provideConfig() {
     ],
     declarations: [AppComponent],
     providers: [
+        WindowRef,
         AuthGuard,
         {
             provide: AuthServiceConfig,
